@@ -1,9 +1,3 @@
-variable "vpc_cidr_block" {
-    description = "vpc cidr block"
-    type = string
-    default = "10.0.0.0/24"
-}
-
 # VPC
 resource "aws_vpc" "main" {
     cidr_block = var.vpc_cidr_block
@@ -65,9 +59,4 @@ resource "aws_subnet" "private_a" {
     tags = {
         Name = "private_subnet"
     }
-}
-
-# output
-output "public_subnet_id" {
-    value = aws_subnet.public_a.id
 }
